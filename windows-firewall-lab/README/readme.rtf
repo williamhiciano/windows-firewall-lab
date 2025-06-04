@@ -1,0 +1,59 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # Windows Firewall Rules Lab\
+\
+## Lab Objective\
+Simulate blocking and restoring network connectivity using Windows Defender Firewall to better understand how inbound rules affect system communication.\
+\
+---\
+\
+##  Setup\
+- **Windows 10 VM** on VirtualBox (Bridged Adapter)\
+- Host Machine: macOS\
+- Static IP used for testing connectivity\
+- Verified ICMP (ping) behavior via macOS Terminal\
+\
+---\
+\
+## What Was Done\
+\
+### Step 1: Created Firewall Rule to Block ICMP (Ping)\
+Used Windows Defender Firewall (Advanced Settings) to block ICMPv4 traffic:\
+- Inbound Rule\
+- Custom \uc0\u8594  ICMPv4 \u8594  Block the connection\
+- Applied to Domain, Private, and Public profiles\
+\
+**Result: Ping requests from host timed out**\
+\
+![Blocked Ping Screenshot](screenshots/ping-blocked.png)\
+\
+---\
+\
+###  Step 2: Deleted Firewall Rule to Restore Connectivity\
+Removed the \'93Block ICMP\'94 inbound rule. Retested ping from Mac terminal.\
+\
+**Result: Ping replies were received again**\
+\
+![Restored Ping Screenshot](screenshots/ping-restored.png)\
+\
+---\
+\
+###Step 3: Firewall Rule Configuration\
+Screenshot of the blocked rule in Windows Firewall (before it was deleted):\
+\
+![Inbound Rule Screenshot](screenshots/firewall-rule.png)\
+\
+---\
+\
+## Summary\
+This lab demonstrated how to:\
+- Configure a custom inbound firewall rule in Windows\
+- Simulate a network connectivity issue\
+- Troubleshoot and resolve the issue by removing the rule\
+\
+}
